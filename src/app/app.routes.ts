@@ -6,6 +6,7 @@ import { MapViewComponent } from './map-view/map-view.component';
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent},
-    { path: 'voting', component: VotingComponent},
+    // { path: 'voting', component: VotingComponent},
+    { path: 'vote/:scheduleId/:routeInfo', component: VotingComponent },
     { path: 'map', component: MapViewComponent}
 ];

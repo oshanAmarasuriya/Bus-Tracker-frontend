@@ -17,5 +17,14 @@ export class RequestHandlingService {
      return this.http.get<any[]>(`${this.apiUrl}/v1/schedules/all`)
    }
 
+   addVote(id: number, latitude: number, longitude: number) {
+    const voteData = {
+      latitude: latitude,
+      longitude: longitude
+    };
+
+    return this.http.patch(`${this.apiUrl}/v1/schedules/vote/${id}`, voteData, { withCredentials: true });
+  }
+
 
 }

@@ -7,18 +7,21 @@
     <table>
       <thead>
         <tr>
-          <th>Route</th>
+          <th>Route Info</th>
+          <th>Scheduled departure-arrival</th>
           <th>Votes for availability</th>
-          <th>Departure</th>
-          <th>Arrival</th>
+          <th>Last known location</th>
+          <th>Your vote</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let schedule of scheduleData">
-          <td>{{schedule.route.number}}- {{schedule.route.origin}}-{{schedule.route.destination}}</td>
+          <td>{{schedule.route.routeNumber}}- {{schedule.route.origin}}-{{schedule.route.destination}}</td>
+          <td>{{schedule.departureTime}}-{{schedule.arrivalTime}}</td>
           <td>{{schedule.votes}}</td>
-          <td>{{schedule.departureTime}}</td>
-          <td>{{schedule.arrivalTime}}</td>
+          <td>{{schedule.lastLocation}}</td>
+          
+          <td><button (click)="onButtonClick(schedule.scheduleId,schedule.route.routeNumber+'- '+schedule.route.origin+'-'+schedule.route.destination)">I'm in</button></td>
 
         </tr>
       </tbody>

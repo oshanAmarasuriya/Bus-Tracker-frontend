@@ -14,12 +14,14 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: small;
+    text-align: center;
+    font-size: medium;
   }
   
   th,
   td {
     border: 1px solid #100505;
-    text-align: justify;
+    text-align: center;
     padding: 8px;
   }
   
