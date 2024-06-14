@@ -21,7 +21,7 @@ export class HomeComponent {
     //Calling backend API
     this.requestHandlingService.fetchData().subscribe((result) => {
       this.scheduleData = result;
-      console.log(this.scheduleData);
+      //console.log(this.scheduleData);
     },
       (error) => {
         console.error(error);

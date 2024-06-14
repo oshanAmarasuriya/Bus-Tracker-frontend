@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestHandlingService } from '../services/request-handling.service';
+import { LocationCaptureService } from '../services/location-capture.service';
 
 @Component({
   selector: 'app-voting',
@@ -17,16 +18,31 @@ export class VotingComponent {
   latitude: number=0.0;
   longitude: number=0.0;
 
-  constructor(private activatedRoute: ActivatedRoute, private requestHandlingService: RequestHandlingService,private router: Router) {}
+  constructor(private activatedRoute: ActivatedRoute, private requestHandlingService: RequestHandlingService,private router: Router,private locationCaptureService: LocationCaptureService) {}
 
   ngOnInit() {
     this.scheduleId = this.activatedRoute.snapshot.paramMap.get('scheduleId');
     this.routeInfo = this.activatedRoute.snapshot.paramMap.get('routeInfo');
 
-    this.latitude=1.2;
-    this.longitude=3.4;
+    // this.latitude=1.2;
+    // this.longitude=3.4;
     //console.log(".....",this.routeInfo);
     
+  }
+
+  onLocationButtonOnClick(){
+    this.locationCaptureService.getLocation().then((position: GeolocationPosition) => {
+      
+        this.latitude= position.coords.latitude
+        this.longitude= position.coords.longitude
+        console.log(this.latitude,"-",this.longitude)
+      
+    }).catch(error => {
+      alert('Could not capture the location!');
+      this.latitude=5.0;
+      this.longitude=6.0;
+    });;
+
   }
 
   onButtonClick(){
