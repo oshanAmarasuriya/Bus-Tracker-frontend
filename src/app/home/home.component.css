@@ -1,3 +1,30 @@
 body{
     margin-top:50px;
 }
+
+#table-container{
+    border: 2px solid;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: small;
+  }
+  
+  th,
+  td {
+    border: 1px solid #100505;
+    text-align: justify;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #d1d1d1;
+  }
+
+

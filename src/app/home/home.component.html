@@ -2,5 +2,28 @@
 <body>
 
 <p>home works!</p>
+<div *ngIf="scheduleData && scheduleData.length > 0" id="table-container">
+    <!-- Table for each contract -->
+    <table>
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th>Votes for availability</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let schedule of scheduleData">
+          <td>{{schedule.route.number}}- {{schedule.route.origin}}-{{schedule.route.destination}}</td>
+          <td>{{schedule.votes}}</td>
+          <td>{{schedule.departureTime}}</td>
+          <td>{{schedule.arrivalTime}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
 
 </body>
