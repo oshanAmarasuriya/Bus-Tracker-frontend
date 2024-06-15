@@ -22,7 +22,6 @@ export class ScheduleAdderComponent {
     //Calling backend API
     this.requestHandlingService.fetchRoutes().subscribe((result) => {
       this.routeList = result;
-      console.log(this.routeList);
     },
       (error) => {
         console.error(error);
@@ -52,10 +51,22 @@ export class ScheduleAdderComponent {
     }
   }
 
+  onCancel(){
+    this.clearForm();
+    this.router.navigate(['/home']);
+  }
+
+  onAddRouteBtnClk(){
+    this.clearForm();
+    this.router.navigate(['/addRoute']);
+  }
+
   clearForm() {
     this.formData.routeId = null;
     this.formData.arrivalTime = null;
     this.formData.departureTime = null;
   }
+
+
 
 }

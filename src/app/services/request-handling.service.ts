@@ -35,6 +35,11 @@ export class RequestHandlingService {
     return this.http.post<any>(url, formData);
   }
 
+  sendRoute(formData: any): Observable<any> {
+    const url = `${this.apiUrl}/v1/routes/add`;
+    return this.http.post<any>(url, formData);
+  }
+
 
 
 }
