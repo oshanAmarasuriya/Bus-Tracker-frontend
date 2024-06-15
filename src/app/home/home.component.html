@@ -1,24 +1,27 @@
 
 <body>
 
-<p>home works!</p>
+<p>Bus schedules</p>
 <div *ngIf="scheduleData && scheduleData.length > 0" id="table-container">
     <!-- Table for each contract -->
     <table>
       <thead>
         <tr>
-          <th>Route</th>
+          <th>Route Info</th>
+          <th>Scheduled departure/arrival</th>
           <th>Votes for availability</th>
-          <th>Departure</th>
-          <th>Arrival</th>
+          <th>Last known location</th>
+          <th>Your vote</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let schedule of scheduleData">
-          <td>{{schedule.route.number}}- {{schedule.route.origin}}-{{schedule.route.destination}}</td>
+          <td>{{schedule.route.routeNumber}}- {{schedule.route.origin}}-{{schedule.route.destination}}</td>
+          <td>{{schedule.departureTime}}/{{schedule.arrivalTime}}</td>
           <td>{{schedule.votes}}</td>
-          <td>{{schedule.departureTime}}</td>
-          <td>{{schedule.arrivalTime}}</td>
+          <td>{{schedule.lastKnownLatitude}}-{{schedule.lastKnownLongitude}}</td>
+          
+          <td><button id="btn-vote" (click)="onButtonClick(schedule.scheduleId,schedule.route.routeNumber+'- '+schedule.route.origin+'-'+schedule.route.destination)">I'm in</button></td>
 
         </tr>
       </tbody>

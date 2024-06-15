@@ -1,0 +1,11 @@
+<body>
+    <div id=container>
+    <h3>Are you in {{routeInfo}} bus, right now?</h3>
+    <div id="location-container">
+        <button id="btn-location" (click)="onLocationButtonOnClick()">Get my geo location</button>
+        <p id="coordinates">{{latitude}}, {{longitude}}</p>
+    </div>
+    <button id="btn-vote-confirm" (click)="onButtonClick()">Confirm availability</button>
+    </div>
+</body>
+
