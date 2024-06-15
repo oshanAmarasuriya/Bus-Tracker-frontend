@@ -26,5 +26,15 @@ export class RequestHandlingService {
     return this.http.patch(`${this.apiUrl}/v1/schedules/vote/${id}`, voteData, { withCredentials: true });
   }
 
+  fetchRoutes():  Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/v1/routes/all`)
+  }
+
+  sendSchedule(formData: any): Observable<any> {
+    const url = `${this.apiUrl}/v1/schedules/add`;
+    return this.http.post<any>(url, formData);
+  }
+
+
 
 }

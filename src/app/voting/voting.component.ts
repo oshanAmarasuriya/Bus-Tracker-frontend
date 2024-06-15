@@ -39,8 +39,8 @@ export class VotingComponent {
       
     }).catch(error => {
       alert('Could not capture the location!');
-      this.latitude=5.0;
-      this.longitude=6.0;
+      this.latitude=0.0;
+      this.longitude=0.0;
     });;
 
   }
@@ -49,14 +49,17 @@ export class VotingComponent {
     this.requestHandlingService.addVote(this.scheduleId,this.latitude,this.longitude).subscribe((result) => {
       console.log(result);
       alert("Done!");
+      this.router.navigate(['/home']);
     },
       (error) => {
         if(error.status==403){
-          alert("You have already voted")
+          alert("You have already voted");
+          this.router.navigate(['/home']);
         }
 
-      });
-      this.router.navigate(['/home']);
+      }
+    );
+      
 
   }
 
