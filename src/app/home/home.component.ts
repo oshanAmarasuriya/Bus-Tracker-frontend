@@ -35,4 +35,11 @@ export class HomeComponent {
     this.router.navigate(['/vote', scheduleId,routeInfo]);
   }
 
+  onLocationClick(latitude: number,longitude: number){
+    if(latitude>0.0 && longitude>0.0){
+      const url = `https://www.google.com/maps?q=${latitude},${longitude}`;
+      window.open(url, '_blank');
+    }
+  }
+
 }

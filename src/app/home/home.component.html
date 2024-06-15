@@ -19,7 +19,8 @@
           <td>{{schedule.route.routeNumber}}- {{schedule.route.origin}}-{{schedule.route.destination}}</td>
           <td>{{schedule.departureTime}}/{{schedule.arrivalTime}}</td>
           <td>{{schedule.votes}}</td>
-          <td>{{schedule.lastKnownLatitude}}-{{schedule.lastKnownLongitude}}</td>
+          <!-- <td>{{schedule.lastKnownLatitude}}-{{schedule.lastKnownLongitude}}</td> -->
+           <td><button id="btn-open-map" (click)="onLocationClick(schedule.lastKnownLatitude,schedule.lastKnownLongitude)">📌</button></td>
           
           <td><button id="btn-vote" (click)="onButtonClick(schedule.scheduleId,schedule.route.routeNumber+'- '+schedule.route.origin+'-'+schedule.route.destination)">I'm in</button></td>
 
